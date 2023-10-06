@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "ts-node src/app.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "nan": "^2.18.0",
+    "raw-socket": "^1.7.0",
+    "ts-node": "^10.9.1"
+  }
+}
