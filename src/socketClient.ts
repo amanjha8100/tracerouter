@@ -19,10 +19,6 @@ export class socketClient {
     start_time: any;
 
     public constructor() {
-        // this.socketUDP = dgram.createSocket('udp4');
-        // this.socketICMP = raw.createSocket({
-        //     protocol: raw.Protocol.ICMP
-        // });
         this.ttl = 1;
         this.url = "www.urbanladder.com";
         this.ip = "";
@@ -115,8 +111,6 @@ export class socketClient {
             const messageCode = parseInt(message.substr(offset*2 + 2, 2), 16);
             // console.log(messageType, " ", messageCode);
 
-            // When a TTL expiry condition is satisfied
-            // or when the destination becomes unreachable (also true when reached destination)
             if(source === "1.1.1.1") {
                 this.ttl = this.ttl + 1;
                 this.sendPacketUDP();
@@ -158,11 +152,11 @@ export class socketClient {
         });
 
         socketICMP.on('error', (err: string) => {
-            console.error(err);
+            console.error("Error in ICMP socket: ", err);
         });
         
         socketICMP.on('close', () => {
-            console.log('socket closed');
+            console.log('ICMP Socket Closed');
         });
     }
 }
